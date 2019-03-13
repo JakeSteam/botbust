@@ -9,7 +9,14 @@ import requests
 
 #set globals
 
-r=praw.Reddit('botbust')
+try:
+    r=praw.Reddit('botbust')
+except:
+    r=praw.Reddit(client_id=os.environ.get("client_id"),
+                  client_secret=os.environ.get("client_secret"),
+                  username=os.environ.get("username"),
+                  password=os.environ.get("password"),
+                  user_agent="modbanner from heroku")
 
 ME = r.user.me()
 SUBREDDIT = r.subreddit('BotBust')
