@@ -132,12 +132,12 @@ class Bot():
 
             #filter out everything not sent by a subreddit
             #forward to me
-            if message.author is not None:
+            #if message.author is not None:
                 #ignore pms from mod_mailer
-                if message.author.name in ['mod_mailer']:
-                    continue
-                r.redditor('captainmeta4').message('Message Forward: {}'.format(message.subject),MESSAGE_FORWARD.format(message.dest,message.author.name,message.body))
-                continue
+            #    if message.author.name in ['mod_mailer']:
+            #        continue
+            #    r.redditor('captainmeta4').message('Message Forward: {}'.format(message.subject),MESSAGE_FORWARD.format(message.dest,message.author.name,message.body))
+            #    continue
 
             #filter out messages not associated with a subreddit
             if message.subreddit is None:
