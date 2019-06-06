@@ -207,7 +207,7 @@ class Bot():
             
             # protect against insufficient mod perms by using try
             try:
-                comment.mod.remove()
+                comment.mod.remove(spam=True)
             except:
                 pass
 
@@ -271,7 +271,7 @@ class Bot():
             if name in self.friends:
                 #flair the post, remove it, and add an explanatory comment
                 submission.mod.flair(text="Already Banned!", css_class="banned")
-                submission.mod.remove()
+                submission.mod.remove(spam=True)
                 if name.startswith('_'):
                     name='\\'+name
                 submission.reply(ALREADY_BANNED.format(name)).mod.distinguish(sticky=True)
